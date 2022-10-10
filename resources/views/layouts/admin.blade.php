@@ -1,6 +1,6 @@
-<<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
+	<head>
 		{{-- META DATA --}}
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -58,6 +58,42 @@
 		<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js" defer></script>
 
 		{{-- Custom CSS --}}
+		<style>
+			body {font-family: Arial, Helvetica, sans-serif;}
+
+			.navbar {
+				width: 100%;
+				background-color: #555;
+				overflow: auto;
+			}
+
+			.navbar a {
+				float: right;
+				padding: 15px;
+				padding right: 5px;
+				color: white;
+				text-decoration: none;
+				font-size: 15px;
+			}
+
+			.navbar a:hover {
+				background-color: #256e83;
+			}
+
+			.System-name{
+				font-size: 20px;
+				float: left;
+				color:white;
+				padding-left: 25px;
+			}
+
+			@media screen and (max-width: 500px) {
+				.navbar a {
+					float: none;
+					display: block;
+				}
+			}
+		</style>
 		@yield('css')
 
 		{{-- Fontawesome --}}
@@ -72,6 +108,55 @@
 		<title>{{ env('APP_NAME') }} | @yield('title')</title>
 	</head>
 	
+	<body>
+		{{-- NEW NAVBAR --}}
+		<nav class="navbar navbar-expand-lg">
+			<a class="navbar-brand" href="#">Achiever's CREST</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navcontent" aria-controls="navcontent" aria-expanded="false" aria-label="Toggle Navbar Content">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navcontent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a href="#" class="nav-link"><i class="fa fa-fw fa-user mr-2"></i>Users</a>
+					</li>
+
+					<li class="nav-item">
+						<a href="#" class="nav-link"><i class="fa-sharp fa-solid fa-print mr-2"></i>Reports</a>
+					</li>
+
+					<li class="nav-item">
+						<a href="#" class="nav-link"><i class="fa-solid fa-handshake mr-2"></i>Services</a>
+					</li>
+
+					<li class="nav-item">
+						<a href="#" class="nav-link"><i class="fa fa-fw fa-envelope mr-2"></i>Registration</a>
+					</li>
+
+					<li class="nav-item">
+						<a href="#" class="nav-link"><i class="fa-sharp fa-solid fa-chart-line mr-2"></i>Dashboard</a>
+					</li>
+
+					<li class="nav-item">
+						<a href="#" class="nav-link"><i class="fa fa-fw fa-home mr-2"></i>Home</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
 
 
+		{{-- OLD NAVBAR --}}
+		{{--<div class="navbar">
+			<a href="#"><i class="fa fa-fw fa-user"></i> Users </a>
+			<a href="#"><i class="fa-sharp fa-solid fa-print"></i> Reports </a>
+			<a href="#"><i class="fa-solid fa-handshake"></i>	Services </a>
+			<a href="#"><i class="fa fa-fw fa-envelope"></i> Registration</a> 
+			<a href="#"><i class="fa-sharp fa-solid fa-chart-line"></i> Dashboard</a>
+			<a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a> 
+			<h5 class="System-name">Achiever's CREST</h5>
+		</div>--}}
+
+		@yield('content')
+	</body>
 </html>
